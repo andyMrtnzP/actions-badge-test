@@ -49,3 +49,12 @@ jobs:
         STATUS: ${{ steps.test.outcome == 'success' && 'Passing' || 'Failing'  }}
         COLOR: ${{ steps.test.outcome == 'success' && '198229' || '82121D'  }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Multibrowser badge
+      uses: RubbaBoy/BYOB@v1.3.0
+      with:
+        NAME: multi
+        LABEL: 'Status'
+        ICON: "https://raw.githubusercontent.com/alrra/browser-logos/main/src/web/web.svg"
+        STATUS: ${{ steps.test.outcome == 'success' && 'Passing' || 'Failing'  }}
+        COLOR: ${{ steps.test.outcome == 'success' && '198229' || '82121D'  }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
