@@ -23,13 +23,13 @@ jobs:
       id: test
       run: npm run test
     - id: date
-        run: npm run test
-      - name: Time badge
-        uses: RubbaBoy/BYOB@v1.3.0
-        with:
-          NAME: time
-          LABEL: 'Updated at'
-          STATUS: ${{ steps.date.outputs.data }}
-          COLOR: 00EEFF
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: echo "##[set-output name=data;]$(date)"
+    - name: Time badge
+      uses: RubbaBoy/BYOB@v1.3.0
+      with:
+        NAME: time
+        LABEL: 'Updated at'
+        STATUS: ${{ steps.date.outputs.data }}
+        COLOR: 00EEFF
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             
