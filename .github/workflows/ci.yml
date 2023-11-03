@@ -23,7 +23,7 @@ jobs:
       id: test
       run: npm run test
     - id: date
-        run: echo "1234"
+        run: npm run test
       - name: Time badge
         uses: RubbaBoy/BYOB@v1.3.0
         with:
