@@ -22,13 +22,11 @@ jobs:
     - name: Test Library
       id: test
       run: npm run test
-    - id: date
-      run: echo "##[set-output name=data;]$(date)"
     - name: Time badge
-      uses: RubbaBoy/BYOB@v1.3.0
+      uses: emibcn/badge-action@v2.0.2
       with:
-        NAME: custom
-        ICON: 'https://raw.githubusercontent.com/RubbaBoy/BYOBTest/master/icons/dollar.svg'
-        STATUS: 'Custom Icons'
-        COLOR: red
+        label: 'Test coverage'
+        status: '53.4%'
+        color: 'blue,555,daf'
+        path: '.github/badges/coverage.svg'
             
