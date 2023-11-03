@@ -26,7 +26,7 @@ jobs:
       uses: RubbaBoy/BYOB@v1.3.0
       with:
         NAME: firefox
-        LABEL: 'Status'
+        LABEL: 'Firefox'
         ICON: "https://raw.githubusercontent.com/alrra/browser-logos/main/src/firefox/firefox.svg"
         STATUS: ${{ steps.test.outcome == 'success' && 'Passing' || 'Failing'  }}
         COLOR: ${{ steps.test.outcome == 'success' && '198229' || '82121D'  }}
@@ -35,7 +35,7 @@ jobs:
       uses: RubbaBoy/BYOB@v1.3.0
       with:
         NAME: chrome
-        LABEL: 'Status'
+        LABEL: 'Chromium'
         ICON: "https://raw.githubusercontent.com/alrra/browser-logos/main/src/chromium/chromium.svg"
         STATUS: ${{ steps.test.outcome == 'success' && 'Passing' || 'Failing'  }}
         COLOR: ${{ steps.test.outcome == 'success' && '198229' || '82121D'  }}
@@ -44,7 +44,7 @@ jobs:
       uses: RubbaBoy/BYOB@v1.3.0
       with:
         NAME: webkit
-        LABEL: 'Status'
+        LABEL: 'Webkit'
         ICON: "https://raw.githubusercontent.com/alrra/browser-logos/main/src/webkit/webkit.svg"
         STATUS: ${{ steps.test.outcome == 'success' && 'Passing' || 'Failing'  }}
         COLOR: ${{ steps.test.outcome == 'success' && '198229' || '82121D'  }}
@@ -53,7 +53,7 @@ jobs:
       uses: RubbaBoy/BYOB@v1.3.0
       with:
         NAME: multi
-        LABEL: 'Status'
+        LABEL: 'Multibrowser'
         ICON: "https://raw.githubusercontent.com/alrra/browser-logos/main/src/web/web.svg"
         STATUS: ${{ steps.test.outcome == 'success' && 'Passing' || 'Failing'  }}
         COLOR: ${{ steps.test.outcome == 'success' && '198229' || '82121D'  }}
