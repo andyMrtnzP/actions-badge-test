@@ -1,32 +1,14 @@
-name: Test Math Library
-
-on: [pull_request]
-
 jobs:
-  build:
-
+  badge_job:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [16.x]
-
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm ci
-    - name: Test Library
-      id: test
-      run: npm run test
-    - name: Time badge
-      uses: emibcn/badge-action@v2.0.2
-      with:
-        label: 'Test coverage'
-        status: '53.4%'
-        color: 'blue,555,daf'
-        path: '.github/icons/firefox.svg'
-            
+      - id: date
+        run: echo "##[set-output name=data;]$(date)"
+      - name: Time badge
+        uses: RubbaBoy/BYOB@v1.3.0
+        with:
+          NAME: time
+          LABEL: 'Updated at'
+          STATUS: ${{ steps.date.outputs.data }}
+          COLOR: 00EEFF
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
