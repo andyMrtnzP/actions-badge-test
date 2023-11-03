@@ -22,8 +22,6 @@ jobs:
     - name: Test Library
       id: test
       run: npm run test
-    - name: Bring Your Own Badge
-      id: math
       uses: RubbaBoy/BYOB@v1.3.0
       with:
           NAME: math
