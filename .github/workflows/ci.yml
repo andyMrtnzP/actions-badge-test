@@ -29,5 +29,5 @@ jobs:
         LABEL: 'Status'
         ICON: "https://raw.githubusercontent.com/alrra/browser-logos/main/src/firefox/firefox.svg"
         STATUS: ${{ steps.test.outcome == 'success' && 'Passing' || 'Failing'  }}
-        COLOR: FF9966
+        COLOR: ${{ steps.test.outcome == 'success' && 198229 || 82121D  }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
