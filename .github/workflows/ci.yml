@@ -30,4 +30,3 @@ jobs:
           STATUS: ${{ steps.test.outputs.data }}
           COLOR: 007982
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            
