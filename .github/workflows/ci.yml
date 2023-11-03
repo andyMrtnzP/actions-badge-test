@@ -20,6 +20,7 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - name: Test Library
+      id: test
       run: npm run test
     - name: Bring Your Own Badge
       uses: RubbaBoy/BYOB@v1.3.0
@@ -27,7 +28,7 @@ jobs:
           NAME: math
           ICON: 'https://upload.wikimedia.org/wikipedia/commons/a/a0/Icon_Mathematical_Plot.svg'
           LABEL: 'Does Really Advanced Math'
-          STATUS: ${{ steps.date.outputs.data }}
+          STATUS: ${{ steps.test.outputs.data }}
           COLOR: 007982
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             
