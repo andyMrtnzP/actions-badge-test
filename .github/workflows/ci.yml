@@ -4,7 +4,6 @@ on: [pull_request]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -12,49 +11,49 @@ jobs:
         node-version: [16.x]
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm ci
-    - name: Test Library
-      id: test
-      run: npm run test
-    - name: Firefox badge
-      uses: RubbaBoy/BYOB@v1.3.0
-      with:
-        NAME: firefox
-        LABEL: 'Firefox'
-        ICON: "https://raw.githubusercontent.com/alrra/browser-logos/main/src/firefox/firefox.svg"
-        STATUS: ${{ steps.test.outcome == 'success' && 'Passing' || 'Failing'  }}
-        COLOR: ${{ steps.test.outcome == 'success' && '198229' || '82121D'  }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: Chrome badge
-      uses: RubbaBoy/BYOB@v1.3.0
-      with:
-        NAME: chrome
-        LABEL: 'Chromium'
-        ICON: "https://raw.githubusercontent.com/alrra/browser-logos/main/src/chromium/chromium.svg"
-        STATUS: ${{ steps.test.outcome == 'success' && 'Passing' || 'Failing'  }}
-        COLOR: ${{ steps.test.outcome == 'success' && '198229' || '82121D'  }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: Webkit badge
-      uses: RubbaBoy/BYOB@v1.3.0
-      with:
-        NAME: webkit
-        LABEL: 'Webkit'
-        ICON: "https://raw.githubusercontent.com/alrra/browser-logos/main/src/webkit/webkit.svg"
-        STATUS: ${{ steps.test.outcome == 'success' && 'Passing' || 'Failing'  }}
-        COLOR: ${{ steps.test.outcome == 'success' && '198229' || '82121D'  }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: Multibrowser badge
-      uses: RubbaBoy/BYOB@v1.3.0
-      with:
-        NAME: multi
-        LABEL: 'Multibrowser'
-        ICON: "https://raw.githubusercontent.com/alrra/browser-logos/main/src/web/web.svg"
-        STATUS: ${{ steps.test.outcome == 'success' && 'Passing' || 'Failing'  }}
-        COLOR: ${{ steps.test.outcome == 'success' && '198229' || '82121D'  }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+      - run: npm ci
+      - name: Test Library
+        id: test
+        run: npm run test
+      - name: Firefox badge
+        uses: RubbaBoy/BYOB@v1.3.0
+        with:
+          NAME: firefox
+          LABEL: "Firefox"
+          ICON: "https://raw.githubusercontent.com/alrra/browser-logos/main/src/firefox/firefox.svg"
+          STATUS: ${{ steps.test.outcome == 'success' && 'Passing' || 'Failing'  }}
+          COLOR: ${{ steps.test.outcome == 'success' && '198229' || '82121D'  }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Chrome badge
+        uses: RubbaBoy/BYOB@v1.3.0
+        with:
+          NAME: chrome
+          LABEL: "Chromium"
+          ICON: "https://raw.githubusercontent.com/alrra/browser-logos/main/src/chromium/chromium.svg"
+          STATUS: ${{ steps.test.outcome == 'success' && 'Passing' || 'Failing'  }}
+          COLOR: ${{ steps.test.outcome == 'success' && '198229' || '82121D'  }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Webkit badge
+        uses: RubbaBoy/BYOB@v1.3.0
+        with:
+          NAME: webkit
+          LABEL: "Webkit"
+          ICON: "https://raw.githubusercontent.com/alrra/browser-logos/main/src/webkit/webkit.svg"
+          STATUS: ${{ steps.test.outcome == 'success' && 'Passing' || 'Failing'  }}
+          COLOR: ${{ steps.test.outcome == 'success' && '198229' || '82121D'  }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Multibrowser badge
+        uses: RubbaBoy/BYOB@v1.3.0
+        with:
+          NAME: multi
+          LABEL: "Multibrowser"
+          ICON: "https://raw.githubusercontent.com/alrra/browser-logos/main/src/web/web.svg"
+          STATUS: ${{ steps.test.outcome == 'success' && 'Passing' || 'Failing'  }}
+          COLOR: ${{ steps.test.outcome == 'success' && '198229' || '82121D'  }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
